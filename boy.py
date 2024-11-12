@@ -161,6 +161,7 @@ class Boy:
             self.ball_count -= 1
             ball = Ball(self.x, self.y, self.face_dir*10)
             game_world.add_object(ball)
+            game_world.add_collision_pair('zombie:ball', None, ball)
 
     def get_bb(self):
         # fill here
@@ -171,4 +172,7 @@ class Boy:
         # fill here
         if group == 'boy:ball':
             self.ball_count += 1
+        if group == 'boy:zombie':
+            game_world.remove_object(self)
+            game_framework.quit()
         pass

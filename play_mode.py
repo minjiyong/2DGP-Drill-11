@@ -43,9 +43,12 @@ def init():
 
     #충돌 정보를 등록합니다.
     game_world.add_collision_pair('boy:ball', boy, None)
+    game_world.add_collision_pair('boy:zombie', boy, None)
     for ball in balls:
         game_world.add_collision_pair('boy:ball', None, ball)
-
+    for zombie in zombies:
+        game_world.add_collision_pair('boy:zombie', None, zombie)
+        game_world.add_collision_pair('zombie:ball', zombie, None)
 
 
 def finish():
